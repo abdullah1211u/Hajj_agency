@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আল-ফালাহ হজ গ্রুপ</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide-icons@0.372.0/dist/lucide.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: #f8f6f1;
+        }
+        /* Islamic pattern background */
+        .islamic-pattern-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
+            background-color: #044322; /* Deep green */
+            color: white;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #044322; /* Deep green */
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #d4af37; /* Gold */
+            bottom: 0;
+            left: calc(50% - 40px);
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #d4af37; /* Gold */
+            border-bottom-color: #d4af37;
+        }
+        .mobile-nav-link {
+             transition: color 0.3s, background-color 0.3s;
+        }
+        .mobile-nav-link.active, .mobile-nav-link:hover {
+            color: #d4af37;
+            background-color: #f7fafc;
+        }
+        .package-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: white;
+        }
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .btn-primary {
+            background-color: #044322;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #065f31;
+        }
+        .btn-secondary {
+            background-color: #d4af37;
+            color: #044322;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .btn-secondary:hover {
+            background-color: #c8a02a;
+        }
+        /* Hide all sections by default */
+        .page-section {
+            display: none;
+        }
+        /* Show the active section */
+        .page-section.active {
+            display: block;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #044322;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #065f31;
+        }
+        
+        /* Animation */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-down {
+            animation: fadeInDown 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center" role="navigation" aria-label="Main navigation">
+            <a href="#home" class="text-2xl font-bold text-green-800 flex items-center nav-brand page-switcher">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#044322" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-kaaba"><path d="M4 4h16v16H4Z"/><path d="M18 4v16"/><path d="M14 4v16"/></svg>
+                <span class="ml-2 text-2xl font-bold" style="color: #044322;">আল-ফালাহ হজ গ্রুপ</span>
+            </a>
+            
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="nav-link active">প্রচ্ছদ</a>
+                <a href="#about" class="nav-link">আমাদের সম্পর্কে</a>
+                <a href="#hajj-packages" class="nav-link">হজ প্যাকেজ</a>
+                <a href="#umrah-packages" class="nav-link">ওমরাহ প্যাকেজ</a>
+                <a href="#guide" class="nav-link">হজ নির্দেশিকা</a>
+                <a href="#gallery" class="nav-link">গ্যালারী</a>
+                <a href="#faq" class="nav-link">জিজ্ঞাসা</a>
+                <a href="#contact" class="nav-link">যোগাযোগ</a>
+            </div>
+
+            <button id="mobile-menu-button" class="md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open mobile menu">
+                <i data-lucide="menu" class="text-green-800 h-7 w-7"></i>
+            </button>
+        </nav>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200" role="navigation" aria-label="Mobile navigation">
+            <div class="flex flex-col space-y-1 p-4">
+                <a href="#home" class="mobile-nav-link active rounded-md px-4 py-2 text-lg">প্রচ্ছদ</a>
+                <a href="#about" class="mobile-nav-link rounded-md px-4 py-2 text-lg">আমাদের সম্পর্কে</a>
+                <a href="#hajj-packages" class="mobile-nav-link rounded-md px-4 py-2 text-lg">হজ প্যাকেজ</a>
+                <a href="#umrah-packages" class="mobile-nav-link rounded-md px-4 py-2 text-lg">ওমরাহ প্যাকেজ</a>
+                <a href="#guide" class="mobile-nav-link rounded-md px-4 py-2 text-lg">হজ নির্দেশিকা</a>
+                <a href="#gallery" class="mobile-nav-link rounded-md px-4 py-2 text-lg">গ্যালারী</a>
+                <a href="#faq" class="mobile-nav-link rounded-md px-4 py-2 text-lg">জিজ্ঞাসা</a>
+                <a href="#contact" class="mobile-nav-link rounded-md px-4 py-2 text-lg">যোগাযোগ</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="page-section active">
+            <div class="islamic-pattern-bg h-[60vh] flex items-center justify-center text-center">
+                <div>
+                    <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 animate-fade-in-down">
+                        বায়তুল্লাহর মুসাফির হওয়ার স্বপ্ন পূরণ করুন</h1>
+                    <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                        আল-ফালাহ হজ গ্রুপের সাথে পবিত্র হজ ও ওমরাহ পালনের নিরাপদ ও আরামদায়ক সফরের অভিজ্ঞতা নিন।
+                    </p>
+                    <a href="#hajj-packages" class="btn-secondary font-bold text-lg page-switcher">আমাদের প্যাকেজ দেখুন</a>
+                </div>
+            </div>
+            <div class="py-16 bg-white">
+                <div class="container mx-auto px-6">
+                    <h2 class="section-title">আমাদের সেবাসমূহ</h2>
+                    <div class="grid md:grid-cols-3 gap-8 mt-12 text-center">
+                        <div class="p-6 shadow-lg rounded-lg border border-gray-100">
+                             <i data-lucide="plane" class="mx-auto text-green-800 w-12 h-12 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2 text-green-800">অভিজ্ঞ টিম</h3>
+                            <p>আমাদের রয়েছে হজ ও ওমরাহ ব্যবস্থাপনায় বছরের পর বছরের অভিজ্ঞতা।</p>
+                        </div>
+                        <div class="p-6 shadow-lg rounded-lg border border-gray-100">
+                            <i data-lucide="building-2" class="mx-auto text-green-800 w-12 h-12 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2 text-green-800">উন্নতমানের আবাসন</h3>
+                            <p>হরম শরীফের কাছাকাছি মানসম্মত হোটেলে থাকার সুব্যবস্থা।</p>
+                        </div>
+                        <div class="p-6 shadow-lg rounded-lg border border-gray-100">
+                            <i data-lucide="utensils" class="mx-auto text-green-800 w-12 h-12 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2 text-green-800">স্বাস্থ্যসম্মত খাবার</h3>
+                            <p>সকলের জন্য স্বাস্থ্যসম্মত ও রুচিশীল বাংলাদেশী খাবারের ব্যবস্থা।</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="page-section py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">আমাদের সম্পর্কে</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center mt-12">
+                    <div>
+                        <img src="image.jpg" alt="আল-ফালাহ হজ গ্রুপ" class="rounded-lg shadow-xl">
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-green-800 mb-4">আল্লাহর মেহমানদের সেবায় আমরা প্রতিজ্ঞাবদ্ধ</h3>
+                        <p class="mb-4">
+                            আল-ফালাহ হজ গ্রুপ একটি নির্ভরযোগ্য ও বিশ্বস্ত হজ ও ওমরাহ ভ্রমণ সংস্থা। আমাদের মূল লক্ষ্য হলো আল্লাহর মেহমানদের সর্বোচ্চ মানের সেবা প্রদান করে তাদের হজ ও ওমরাহ পালনকে সহজ ও স্বাচ্ছন্দ্যময় করে তোলা। 
+                        </p>
+                        <p class="mb-4">
+                            আমরা ভিসা প্রসেসিং, টিকেট, আবাসন, পরিবহন, এবং অভিজ্ঞ গাইডের মাধ্যমে সম্পূর্ণ প্যাকেজ সরবরাহ করে থাকি। আমাদের অভিজ্ঞ টিম প্রতিটি পদক্ষেপে হাজীদের পাশে থেকে সব ধরনের সহযোগিতা প্রদান করে থাকে।
+                        </p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="text-green-600 mr-2"></i> সততা ও স্বচ্ছতা</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="text-green-600 mr-2"></i> অভিজ্ঞ আলেমদের তত্ত্বাবধান</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="text-green-600 mr-2"></i> গ্রাহক সন্তুষ্টির নিশ্চয়তা</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hajj-packages" class="page-section py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">হজ প্যাকেজ ২০২৫</h2>
+                <p class="text-center max-w-2xl mx-auto mb-12">
+                    আপনার বাজেট এবং পছন্দ অনুযায়ী আমরা বিভিন্ন ধরণের হজ প্যাকেজ অফার করছি। প্রতিটি প্যাকেজই যত্ন সহকারে তৈরি করা হয়েছে আপনার সর্বোচ্চ আরাম ও সুবিধার কথা মাথায় রেখে।
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="package-card">
+                        <div class="p-6 bg-green-800 text-white text-center">
+                            <h3 class="text-2xl font-bold">ইকোনমি প্যাকেজ</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-4xl font-bold text-center mb-4 text-green-800">৳৫,৫০,০০০</p>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ৪০ দিনের প্যাকেজ</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> মক্কা ও মদিনায় ৩ তারকা মানের হোটেল</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> হারাম থেকে ১৫০০ মিটার দূরত্বে আবাসন</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ৩ বেলা বাংলাদেশী খাবার</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> সাধারণ বাস/কোচে যাতায়াত</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> অভিজ্ঞ গাইড ও মোয়াল্লেম</li>
+                            </ul>
+                            <div class="text-center mt-6">
+                                <a href="#contact" class="btn-primary page-switcher w-full block">বুকিং করুন</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="package-card border-2 border-yellow-500 relative">
+                         <div class="absolute top-0 right-0 bg-yellow-500 text-green-900 font-bold px-4 py-1 rounded-bl-lg">জনপ্রিয়</div>
+                        <div class="p-6 bg-green-800 text-white text-center">
+                            <h3 class="text-2xl font-bold">স্ট্যান্ডার্ড প্যাকেজ</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-4xl font-bold text-center mb-4 text-green-800">৳৭,২৫,০০০</p>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ২৫ দিনের প্যাকেজ</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> মক্কা ও মদিনায় ৪ তারকা মানের হোটেল</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> হারাম থেকে ৫০০-৭০০ মিটার দূরত্বে আবাসন</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ৩ বেলা বুফে খাবার (বাংলাদেশী ও আন্তর্জাতিক)</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> শীতাতপ নিয়ন্ত্রিত লাক্সারি বাসে যাতায়াত</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> সার্বক্ষণিক অভিজ্ঞ গাইড</li>
+                            </ul>
+                            <div class="text-center mt-6">
+                                <a href="#contact" class="btn-primary page-switcher w-full block">বুকিং করুন</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="package-card">
+                        <div class="p-6 bg-green-800 text-white text-center">
+                            <h3 class="text-2xl font-bold">VIP প্যাকেজ</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-4xl font-bold text-center mb-4 text-green-800">৳৯,৫০,০০০</p>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ১৪ দিনের প্যাকেজ</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> মক্কা ও মদিনায় ৫ তারকা মানের হোটেল</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> হারাম থেকে ১০০-২০০ মিটার দূরত্বে আবাসন</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ৩ বেলা ৫ তারকা মানের বুফে খাবার</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ব্যক্তিগত গাড়িতে যাতায়াত</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ব্যক্তিগত গাইড ও সার্বক্ষণিক সেবা</li>
+                            </ul>
+                            <div class="text-center mt-6">
+                                <a href="#contact" class="btn-primary page-switcher w-full block">বুকিং করুন</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="umrah-packages" class="page-section py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">ওমরাহ প্যাকেজ</h2>
+                 <p class="text-center max-w-2xl mx-auto mb-12">
+                    বছরের যেকোনো সময় ওমরাহ পালনের জন্য আমাদের বিশেষ প্যাকেজসমূহ থেকে বেছে নিন। আপনার সুবিধামত সময়ে আমরা ওমরাহ পালনের ব্যবস্থা করে থাকি।
+                </p>
+                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="package-card">
+                        <div class="p-6 bg-green-800 text-white text-center">
+                            <h3 class="text-2xl font-bold">৭ দিনের প্যাকেজ</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-4xl font-bold text-center mb-4 text-green-800">৳১,২০,০০০</p>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ৪ রাত মক্কা, ৩ রাত মদিনা</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ৩ তারকা মানের হোটেল</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> বিমানবন্দর থেকে হোটেলে যাতায়াত</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ওমরাহ ভিসা</li>
+                            </ul>
+                            <div class="text-center mt-6">
+                                <a href="#contact" class="btn-primary page-switcher w-full block">বুকিং করুন</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="package-card">
+                        <div class="p-6 bg-green-800 text-white text-center">
+                            <h3 class="text-2xl font-bold">১০ দিনের প্যাকেজ</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-4xl font-bold text-center mb-4 text-green-800">৳১,৫০,০০০</p>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ৬ রাত মক্কা, ৪ রাত মদিনা</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ৪ তারকা মানের হোটেল</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> বিমানবন্দর থেকে হোটেলে যাতায়াত ও দর্শনীয় স্থান ভ্রমণ</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ওমরাহ ভিসা</li>
+                            </ul>
+                            <div class="text-center mt-6">
+                                <a href="#contact" class="btn-primary page-switcher w-full block">বুকিং করুন</a>
+                            </div>
+                        </div>
+                    </div>
+                      <div class="package-card">
+                        <div class="p-6 bg-green-800 text-white text-center">
+                            <h3 class="text-2xl font-bold">১৪ দিনের প্যাকেজ</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-4xl font-bold text-center mb-4 text-green-800">৳১,৯০,০০০</p>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ৮ রাত মক্কা, ৬ রাত মদিনা</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ৫ তারকা মানের হোটেল</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ব্যক্তিগত গাড়িতে যাতায়াত ও দর্শনীয় স্থান ভ্রমণ</li>
+                                <li class="flex items-start"><i data-lucide="check" class="text-green-600 mr-2 mt-1 flex-shrink-0"></i> ওমরাহ ভিসা ও সকালের নাস্তা</li>
+                            </ul>
+                            <div class="text-center mt-6">
+                                <a href="#contact" class="btn-primary page-switcher w-full block">বুকিং করুন</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="guide" class="page-section py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">হজ নির্দেশিকা</h2>
+                <div class="max-w-4xl mx-auto mt-12">
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-lg shadow">
+                            <h3 class="text-xl font-semibold text-green-800">১. ইহরাম</h3>
+                            <p>হজের প্রথম এবং প্রধান কাজ হলো ইহরাম বাঁধা। মিকাত অতিক্রম করার আগেই পুরুষদের জন্য দুটি সাদা চাদর এবং মহিলাদের জন্য সাধারণ পোশাক পরিধান করে হজের নিয়ত করতে হয়।</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow">
+                            <h3 class="text-xl font-semibold text-green-800">২. তাওয়াফ</h3>
+                            <p>মক্কায় পৌঁছানোর পর পবিত্র কাবা ঘর ৭ বার প্রদক্ষিণ করাকে তাওয়াফ বলে। হাজরে আসওয়াদ থেকে শুরু করে এখানেই শেষ করতে হয়।</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow">
+                            <h3 class="text-xl font-semibold text-green-800">৩. সাঈ</h3>
+                            <p>তাওয়াফের পর সাফা ও মারওয়া পাহাড়ের মধ্যে ৭ বার দ্রুত হাঁটা বা দৌড়ানোকে সাঈ বলে। এটি হযরত হাজেরা (আঃ) এর স্মরণে করা হয়।</p>
+                        </div>
+                         <div class="bg-white p-6 rounded-lg shadow">
+                            <h3 class="text-xl font-semibold text-green-800">৪. আরাফাতের ময়দানে অবস্থান</h3>
+                            <p>হজের মূল পর্ব হলো ৯ই জিলহজ আরাফাতের ময়দানে অবস্থান করা। এখানে সূর্যোদয় থেকে সূর্যাস্ত পর্যন্ত অবস্থান করে আল্লাহর কাছে দোয়া ও ইবাদত করতে হয়।</p>
+                        </div>
+                         <div class="bg-white p-6 rounded-lg shadow">
+                            <h3 class="text-xl font-semibold text-green-800">৫. মুজদালিফায় রাত্রিযাপন ও কঙ্কর সংগ্রহ</h3>
+                            <p>আরাফাত থেকে সূর্যাস্তের পর মুজদালিফায় এসে রাত্রিযাপন করতে হয় এবং জামারায় নিক্ষেপ করার জন্য কঙ্কর সংগ্রহ করতে হয়।</p>
+                        </div>
+                         <div class="bg-white p-6 rounded-lg shadow">
+                            <h3 class="text-xl font-semibold text-green-800">৬. কঙ্কর নিক্ষেপ, কোরবানি ও মাথা মুণ্ডন</h3>
+                            <p>১০ই জিলহজ মিনায় বড় জামারায় ৭টি কঙ্কর নিক্ষেপ করা, কোরবানি করা এবং পুরুষদের মাথা মুণ্ডন বা চুল ছোট করা ও মহিলাদের চুলের অগ্রভাগ কাটা।</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="page-section py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">গ্যালারী</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-12">
+                    <div class="overflow-hidden rounded-lg shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1533235562760-b54a73228945?q=80&w=1974&auto=format&fit=crop" alt="কাবা শরীফ" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
+                    </div>
+                     <div class="overflow-hidden rounded-lg shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1600106917631-93a84e55465e?q=80&w=1964&auto=format&fit=crop" alt="মসজিদে নববী" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
+                    </div>
+                     <div class="overflow-hidden rounded-lg shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1563991322-3852086c4343?q=80&w=2070&auto=format&fit=crop" alt="হাজী" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
+                    </div>
+                     <div class="overflow-hidden rounded-lg shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1627920409228-051f3328c31e?q=80&w=2070&auto=format&fit=crop" alt="আরাফাতের ময়দান" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="overflow-hidden rounded-lg shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1601432499113-28b7e231166e?q=80&w=1974&auto=format&fit=crop" alt="তাওয়াফ" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
+                    </div>
+                     <div class="overflow-hidden rounded-lg shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1599882686365-52701b351915?q=80&w=2070&auto=format&fit=crop" alt="কঙ্কর নিক্ষেপ" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
+                    </div>
+                     <div class="overflow-hidden rounded-lg shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1569097782633-47029a1f26a1?q=80&w=1932&auto=format&fit=crop" alt="হোটেল" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
+                    </div>
+                     <div class="overflow-hidden rounded-lg shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1609193183861-f3c73731b4ff?q=80&w=2070&auto=format&fit=crop" alt="আমাদের গ্রুপ" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="page-section py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">সাধারণ জিজ্ঞাসা</h2>
+                <div class="max-w-3xl mx-auto mt-12 space-y-4">
+                    <div class="bg-white rounded-lg shadow-sm">
+                        <button class="w-full flex justify-between items-center text-left p-5 font-semibold text-lg text-green-800" aria-expanded="false">
+                            <span>হজ প্যাকেজের মধ্যে কী কী অন্তর্ভুক্ত থাকে?</span>
+                            <i data-lucide="chevron-down" class="transition-transform"></i>
+                        </button>
+                        <div class="px-5 pb-5 text-gray-600 hidden">
+                            <p>আমাদের হজ প্যাকেজে সাধারণত ভিসা, বিমান টিকিট, মক্কা ও মদিনায় আবাসন, পরিবহন, খাবার এবং একজন অভিজ্ঞ গাইড অন্তর্ভুক্ত থাকে। প্যাকেজভেদে সুবিধার ভিন্নতা থাকতে পারে।</p>
+                        </div>
+                    </div>
+                     <div class="bg-white rounded-lg shadow-sm">
+                        <button class="w-full flex justify-between items-center text-left p-5 font-semibold text-lg text-green-800" aria-expanded="false">
+                            <span>প্যাকেজের টাকা কীভাবে পরিশোধ করতে হয়?</span>
+                            <i data-lucide="chevron-down" class="transition-transform"></i>
+                        </button>
+                        <div class="px-5 pb-5 text-gray-600 hidden">
+                            <p>আপনি আমাদের অফিসে সরাসরি, ব্যাংক ট্রান্সফার বা মোবাইল ব্যাংকিং এর মাধ্যমে টাকা পরিশোধ করতে পারেন। বুকিং এর সময় ৫০% এবং যাত্রার আগে বাকি ৫০% পরিশোধ করতে হয়।</p>
+                        </div>
+                    </div>
+                     <div class="bg-white rounded-lg shadow-sm">
+                        <button class="w-full flex justify-between items-center text-left p-5 font-semibold text-lg text-green-800" aria-expanded="false">
+                            <span>হজে যাওয়ার আগে কি কোনো প্রশিক্ষণের ব্যবস্থা আছে?</span>
+                            <i data-lucide="chevron-down" class="transition-transform"></i>
+                        </button>
+                        <div class="px-5 pb-5 text-gray-600 hidden">
+                            <p>হ্যাঁ, আমরা হজে যাওয়ার আগে অভিজ্ঞ আলেমদের দ্বারা একাধিক প্রশিক্ষণ কর্মশালার আয়োজন করি, যেখানে হজের নিয়মকানুন ও করণীয় সম্পর্কে বিস্তারিত আলোচনা করা হয়।</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="page-section py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">যোগাযোগ করুন</h2>
+                <div class="grid md:grid-cols-2 gap-12 mt-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-green-800 mb-4">আপনার যেকোনো প্রয়োজনে আমরা আছি আপনার পাশে</h3>
+                        <p class="mb-6">হজ, ওমরাহ বা যেকোনো তথ্যের জন্য আমাদের সাথে যোগাযোগ করুন। আমাদের প্রতিনিধি আপনাকে সর্বাত্মক সহযোগিতা করবে।</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i data-lucide="map-pin" class="text-green-800 w-6 h-6 mr-3"></i>
+                                <span>বাড়ি #১০, রোড #৫, ধানমন্ডি, ঢাকা-১২০৫</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="phone" class="text-green-800 w-6 h-6 mr-3"></i>
+                                <span>+৮৮০ ১২৩৪-৫৬৭৮৯০</span>
+                            </div>
+                             <div class="flex items-center">
+                                <i data-lucide="mail" class="text-green-800 w-6 h-6 mr-3"></i>
+                                <span>info@alfalahhajj.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <form class="space-y-4">
+                            <div>
+                                <label for="name" class="block mb-1 font-medium">আপনার নাম</label>
+                                <input type="text" id="name" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-1 font-medium">আপনার ইমেইল</label>
+                                <input type="email" id="email" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500">
+                            </div>
+                             <div>
+                                <label for="message" class="block mb-1 font-medium">আপনার বার্তা</label>
+                                <textarea id="message" rows="4" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500"></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary w-full py-3 font-bold">বার্তা পাঠান</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="islamic-pattern-bg py-10">
+        <div class="container mx-auto px-6 text-center text-gray-300">
+            <p>&copy; ২০২৫ আল-ফালাহ হজ গ্রুপ। সর্বস্বত্ব সংরক্ষিত।</p>
+            <p class="text-sm mt-2">একটি বিশ্বস্ত হজ ও ওমরাহ সেবাদানকারী প্রতিষ্ঠান</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Render lucide icons
+            if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                lucide.createIcons();
+            }
+
+            // --- Selectors ---
+            const allNavLinks = document.querySelectorAll('a.nav-link, a.mobile-nav-link, a.page-switcher');
+            const sections = document.querySelectorAll('.page-section');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // --- Page Switching Logic ---
+            const showPageFromHash = () => {
+                const hash = window.location.hash || '#home';
+                
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                const activeSection = document.querySelector(hash);
+                if (activeSection) {
+                    activeSection.classList.add('active');
+                } else {
+                    document.getElementById('home').classList.add('active');
+                }
+                
+                // Update active nav link state
+                const activeLinkSelector = `a[href="${hash}"]`;
+                document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                document.querySelectorAll(activeLinkSelector).forEach(link => {
+                    link.classList.add('active');
+                });
+
+                // Scroll to top for SPA feel
+                window.scrollTo(0, 0);
+            };
+
+            // --- Event Listeners ---
+            allNavLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    const targetHash = this.getAttribute('href');
+                    if (!targetHash || !targetHash.startsWith('#')) return;
+                    
+                    event.preventDefault();
+
+                    if (window.location.hash !== targetHash) {
+                        window.location.hash = targetHash;
+                    } else {
+                        showPageFromHash(); // Manually trigger if hash is the same
+                    }
+
+                    // Close mobile menu if it's open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener('click', () => {
+                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+            });
+
+            // FAQ Accordion
+            const faqButtons = document.querySelectorAll('#faq button');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    const icon = button.querySelector('[data-lucide="chevron-down"]');
+                    const isOpening = content.classList.contains('hidden');
+
+                    // Close all others first
+                    faqButtons.forEach(otherButton => {
+                        otherButton.nextElementSibling.classList.add('hidden');
+                        otherButton.querySelector('[data-lucide="chevron-down"]').classList.remove('rotate-180');
+                        otherButton.setAttribute('aria-expanded', 'false');
+                    });
+
+                    // Toggle the clicked one
+                    if (isOpening) {
+                        content.classList.remove('hidden');
+                        icon.classList.add('rotate-180');
+                        button.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+
+            // Handle browser back/forward navigation
+            window.addEventListener('hashchange', showPageFromHash);
+
+            // Initial page load
+            showPageFromHash();
+        });
+    </script>
+</body>
+</html>
