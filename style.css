@@ -1,0 +1,115 @@
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: #f8f6f1;
+        }
+        /* Islamic pattern background */
+        .islamic-pattern-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
+            background-color: #044322; /* Deep green */
+            color: white;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #044322; /* Deep green */
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #d4af37; /* Gold */
+            bottom: 0;
+            left: calc(50% - 40px);
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #d4af37; /* Gold */
+            border-bottom-color: #d4af37;
+        }
+        .mobile-nav-link {
+             transition: color 0.3s, background-color 0.3s;
+        }
+        .mobile-nav-link.active, .mobile-nav-link:hover {
+            color: #d4af37;
+            background-color: #f7fafc;
+        }
+        .package-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: white;
+        }
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .btn-primary {
+            background-color: #044322;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #065f31;
+        }
+        .btn-secondary {
+            background-color: #d4af37;
+            color: #044322;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .btn-secondary:hover {
+            background-color: #c8a02a;
+        }
+        /* Hide all sections by default */
+        .page-section {
+            display: none;
+        }
+        /* Show the active section */
+        .page-section.active {
+            display: block;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #044322;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #065f31;
+        }
+        
+        /* Animation */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-down {
+            animation: fadeInDown 1s ease-out forwards;
+        }
+    

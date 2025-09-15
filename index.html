@@ -6,128 +6,16 @@
     <title>আল-ফালাহ হজ গ্রুপ</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <script src="https://unpkg.com/lucide@0.372.0/dist/umd/lucide.min.js"></script>
 
-    <style>
-        body {
-            font-family: 'Hind Siliguri', sans-serif;
-            background-color: #f8f6f1;
-        }
-        /* Islamic pattern background */
-        .islamic-pattern-bg {
-            background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
-            background-color: #044322; /* Deep green */
-            color: white;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #044322; /* Deep green */
-            position: relative;
-            padding-bottom: 1rem;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: #d4af37; /* Gold */
-            bottom: 0;
-            left: calc(50% - 40px);
-        }
-        .nav-link {
-            transition: color 0.3s, border-bottom-color 0.3s;
-            border-bottom: 2px solid transparent;
-            padding-bottom: 4px;
-        }
-        .nav-link:hover, .nav-link.active {
-            color: #d4af37; /* Gold */
-            border-bottom-color: #d4af37;
-        }
-        .mobile-nav-link {
-             transition: color 0.3s, background-color 0.3s;
-        }
-        .mobile-nav-link.active, .mobile-nav-link:hover {
-            color: #d4af37;
-            background-color: #f7fafc;
-        }
-        .package-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            background-color: white;
-        }
-        .package-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .btn-primary {
-            background-color: #044322;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            transition: background-color 0.3s;
-        }
-        .btn-primary:hover {
-            background-color: #065f31;
-        }
-        .btn-secondary {
-            background-color: #d4af37;
-            color: #044322;
-            padding: 10px 20px;
-            border-radius: 8px;
-            transition: background-color 0.3s;
-        }
-        .btn-secondary:hover {
-            background-color: #c8a02a;
-        }
-        /* Hide all sections by default */
-        .page-section {
-            display: none;
-        }
-        /* Show the active section */
-        .page-section.active {
-            display: block;
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #044322;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #065f31;
-        }
-        
-        /* Animation */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .animate-fade-in-down {
-            animation: fadeInDown 1s ease-out forwards;
-        }
-    </style>
+    
 </head>
 <body class="bg-gray-50 text-gray-800">
 
@@ -209,7 +97,7 @@
                 <h2 class="section-title">আমাদের সম্পর্কে</h2>
                 <div class="grid md:grid-cols-2 gap-12 items-center mt-12">
                     <div>
-                        <img src="image.jpg" alt="আল-ফালাহ হজ গ্রুপ" class="rounded-lg shadow-xl">
+                        <img src="images/image.jpg" alt="আল-ফালাহ হজ গ্রুপ" class="rounded-lg shadow-xl">
                     </div>
                     <div>
                         <h3 class="text-3xl font-bold text-green-800 mb-4">আল্লাহর মেহমানদের সেবায় আমরা প্রতিজ্ঞাবদ্ধ</h3>
@@ -399,28 +287,28 @@
                 <h2 class="section-title">গ্যালারী</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-12">
                     <div class="overflow-hidden rounded-lg shadow-lg">
-                        <img src="kaba.jpg" alt="কাবা শরীফ" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
+                        <img src="images/kaba.jpg" alt="কাবা শরীফ" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
                     </div>
                      <div class="overflow-hidden rounded-lg shadow-lg">
-                        <img src="nabawi.jpg" alt="মসজিদে নববী" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
+                        <img src="images/nabawi.jpg" alt="মসজিদে নববী" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
                     </div>
                      <div class="overflow-hidden rounded-lg shadow-lg">
-                        <img src="haji.jpg" alt="হাজী" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
+                        <img src="images/haji.jpg" alt="হাজী" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
                     </div>
                      <div class="overflow-hidden rounded-lg shadow-lg">
-                        <img src="arafah.jpg" alt="আরাফাতের ময়দান" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
+                        <img src="images/arafah.jpg" alt="আরাফাতের ময়দান" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
                     </div>
                     <div class="overflow-hidden rounded-lg shadow-lg">
-                        <img src="tawaf.jpg" alt="তাওয়াফ" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
+                        <img src="images/tawaf.jpg" alt="তাওয়াফ" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
                     </div>
                      <div class="overflow-hidden rounded-lg shadow-lg">
-                        <img src="stone.jpg" alt="কঙ্কর নিক্ষেপ" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
+                        <img src="images/stone.jpg" alt="কঙ্কর নিক্ষেপ" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
                     </div>
                      <div class="overflow-hidden rounded-lg shadow-lg">
-                        <img src="hotel.jpg" alt="হোটেল" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
+                        <img src="images/hotel.jpg" alt="হোটেল" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
                     </div>
                      <div class="overflow-hidden rounded-lg shadow-lg">
-                        <img src="group.jpg" alt="আমাদের গ্রুপ" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
+                        <img src="images/group.jpg" alt="আমাদের গ্রুপ" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300">
                     </div>
                 </div>
             </div>
@@ -511,135 +399,5 @@
             <p class="text-sm mt-2">একটি বিশ্বস্ত হজ ও ওমরাহ সেবাদানকারী প্রতিষ্ঠান</p>
         </div>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Render lucide icons
-            if (typeof lucide !== 'undefined' && lucide.createIcons) {
-                lucide.createIcons();
-            }
-
-            // --- Selectors ---
-            const allNavLinks = document.querySelectorAll('a.nav-link, a.mobile-nav-link, a.page-switcher');
-            const sections = document.querySelectorAll('.page-section');
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            // --- Page Switching Logic ---
-            const showPageFromHash = () => {
-                const hash = window.location.hash || '#home';
-                
-                sections.forEach(section => {
-                    section.classList.remove('active');
-                });
-
-                const activeSection = document.querySelector(hash);
-                if (activeSection) {
-                    activeSection.classList.add('active');
-                } else {
-                    document.getElementById('home').classList.add('active');
-                }
-                
-                const activeLinkSelector = `a[href="${hash}"]`;
-                document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
-                    link.classList.remove('active');
-                });
-                document.querySelectorAll(activeLinkSelector).forEach(link => {
-                    link.classList.add('active');
-                });
-
-                window.scrollTo(0, 0);
-            };
-
-            // --- Event Listeners ---
-            allNavLinks.forEach(link => {
-                link.addEventListener('click', function(event) {
-                    const targetHash = this.getAttribute('href');
-                    if (!targetHash || !targetHash.startsWith('#')) return;
-                    
-                    event.preventDefault();
-
-                    if (window.location.hash !== targetHash) {
-                        window.location.hash = targetHash;
-                    } else {
-                        showPageFromHash();
-                    }
-
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                        mobileMenuButton.setAttribute('aria-expanded', 'false');
-                    }
-                });
-            });
-
-            // Mobile menu toggle
-            mobileMenuButton.addEventListener('click', () => {
-                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-                mobileMenu.classList.toggle('hidden');
-                mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-            });
-
-            // FAQ Accordion
-            const faqButtons = document.querySelectorAll('#faq button');
-            faqButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const content = button.nextElementSibling;
-                    const icon = button.querySelector('[data-lucide="chevron-down"]');
-                    const isOpening = content.classList.contains('hidden');
-
-                    faqButtons.forEach(otherButton => {
-                        if (otherButton !== button) {
-                            otherButton.nextElementSibling.classList.add('hidden');
-                            otherButton.querySelector('[data-lucide="chevron-down"]').classList.remove('rotate-180');
-                            otherButton.setAttribute('aria-expanded', 'false');
-                        }
-                    });
-
-                    content.classList.toggle('hidden');
-                    icon.classList.toggle('rotate-180');
-                    button.setAttribute('aria-expanded', !isOpening);
-                });
-            });
-
-            // --- NEW: WhatsApp Button Logic ---
-            const sendMessageBtn = document.getElementById('send-message-btn');
-            if (sendMessageBtn) {
-                sendMessageBtn.addEventListener('click', function() {
-                    // 1. Get form values
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const message = document.getElementById('message').value;
-
-                    // 2. Basic validation
-                    if (!name.trim() || !message.trim()) {
-                        alert('দয়া করে আপনার নাম এবং বার্তা লিখুন।'); // Please enter your name and message.
-                        return;
-                    }
-
-                    // 3. Format the message for WhatsApp
-                    const fullMessage = `Assalamualaikum,\n\nআমার নাম: ${name}\nআমার ইমেইল: ${email}\n\nবার্তা:\n${message}`;
-
-                    // 4. URL-encode the message
-                    const encodedMessage = encodeURIComponent(fullMessage);
-
-                    // 5. IMPORTANT: Replace with your actual WhatsApp number (country code without '+')
-                    const whatsappNumber = '+8801868466674'; 
-
-                    // 6. Construct the URL
-                    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-                    // 7. Open the URL in a new tab
-                    window.open(whatsappURL, '_blank');
-                });
-            }
-
-
-            // Handle browser back/forward navigation
-            window.addEventListener('hashchange', showPageFromHash);
-
-            // Initial page load
-            showPageFromHash();
-        });
-    </script>
 </body>
 </html>
