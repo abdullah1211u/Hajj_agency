@@ -6,8 +6,8 @@
         /* Islamic pattern background */
         .islamic-pattern-bg {
             background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
-            background-color: #044322; /* Deep green */
-            color: white;
+            background-color: #d8edef; /* Deep green */
+            color: rgb(0, 0, 0);
         }
         .section-title {
             text-align: center;
