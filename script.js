@@ -109,7 +109,7 @@
                     const encodedMessage = encodeURIComponent(fullMessage);
 
                     // 5. IMPORTANT: Replace with your actual WhatsApp number (country code without '+')
-                    const whatsappNumber = '+8801868466674'; 
+                    const whatsappNumber = '+8801946347744';// Example: '1234567890' for USA number +1 234-567-890
 
                     // 6. Construct the URL
                     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;

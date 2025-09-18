@@ -6,7 +6,7 @@
         /* Islamic pattern background */
         .islamic-pattern-bg {
             background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
-            background-color: #d8edef; 
+            background-color: #5cc2d2d5; 
             color: rgb(0, 0, 0);
         }
         .section-title {
@@ -66,14 +66,24 @@
             background-color: #4fcae9;
         }
         .btn-secondary {
-            background-color: #e283ed;
+            background-color: #edd983;
+            color: #000000;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+          .btn-third {
+            background-color: #edd945;
             color: #000000;
             padding: 10px 20px;
             border-radius: 8px;
             transition: background-color 0.3s;
         }
         .btn-secondary:hover {
-            background-color: #76162c;
+            background-color: #ce909e;
+        }
+        .btn-third:hover {
+            background-color: #ce909e;
         }
         /* Hide all sections by default */
         .page-section {
